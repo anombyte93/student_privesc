@@ -27,10 +27,11 @@ If you’re more comfortable with a graphical interface than the command line, f
 ### 🔹 2. Fork the Instructor’s Repo
 1. Navigate to the [instructor’s GitHub repo](https://github.com/anombyte93/student_privesc) in your browser
 2. Click **Fork** in the top-right corner
-3. This creates a personal copy under your GitHub username
-4. Now you can just edit online by clicking 'edit' on the template. Alternatively, continue following the steps below to edit on your local computer.
+3. This creates a personal copy under your GitHub username, you will need to have this template open to fill out and the PrivEsc_Walkthrough.md file open at the same time.
+4. Now you can just edit this template online by clicking 'edit'. Alternatively, continue following the steps below to edit on your local computer, otherwise begin the PrivEsc_Walkthrough.md now!
 
 ---
+## Only continue here if you plan to edit on your local PC using a text editor like Trae, VSCode, Notepad++ etc otherwise skip to ## 👤 Student Info 
 
 ### 🔹 3. Clone Your Fork with GitHub Desktop
 1. Open GitHub Desktop
@@ -50,7 +51,7 @@ If you’re more comfortable with a graphical interface than the command line, f
 walkthrough-YOURNAME.md
 ```
 
-4. Open the file with a text editor (e.g., VSCode, Notepad++, Sublime Text)
+4. Open the file with a text editor (e.g., VSCode, Trae, Notepad++, Sublime Text)
 5. Fill out each section as you complete the lab
 
 ---
@@ -69,13 +70,6 @@ walkthrough-YOURNAME.md
 
 ---
 
-### 🔹 6. Submit Your Work
-- Go to your GitHub profile and find your forked repo
-- Confirm your `walkthrough-YOURNAME.md` is visible
-- Copy the repo URL and submit it as your lab report
-
----
-
 ## 💡 Why This Is Important
 - ✅ GitHub is how professionals document, collaborate, and version-control projects
 - ✅ Submitting work this way shows you're job-ready
@@ -85,54 +79,6 @@ walkthrough-YOURNAME.md
 
 > 💬 If you're stuck at any step, ask your instructor or teaching assistant for help!
 
-## 💻 Alternatively you can fork using the command line
-
-1. **Go to your instructor’s GitHub repository** (e.g., `https://github.com/instructor/linux-privesc-lab`)
-
-2. In the top-right, click **Fork**. This creates your own copy of the project under your GitHub username.
-
-3. On your newly forked repo page:
-
-   Click the green **Code** button → **Copy the HTTPS link**
-
-4. Open a terminal on your Kali machine and run:
-
-```bash
-git clone https://github.com/YOUR_USERNAME/linux-privesc-lab.git
-cd linux-privesc-lab
-```
-
-5. Copy the template file:
-
-```bash
-cp Student_Privesc_Template.md walkthrough-YOURNAME.md
-```
-
-6. Edit it using any editor (VSCode, Nano, etc.):
-
-```bash
-nano walkthrough-YOURNAME.md
-```
-
-7. When done, save your file and commit your changes:
-
-```bash
-git add walkthrough-YOURNAME.md
-git commit -m "My walkthrough for privilege escalation lab"
-git push origin main
-```
-
----
-
-### 💡 Why Does This Matter in the Real World?
-
-✅ Penetration testers must document every step they take — what worked, what didn’t, and proof of success
-
-✅ Git-based workflows are how security consultants share notes, write internal red team reports, and track evidence
-
-✅ Recruiters and mentors love seeing proof of practice — this becomes part of your portfolio
-
----
 
 ## 👤 Student Info
 
