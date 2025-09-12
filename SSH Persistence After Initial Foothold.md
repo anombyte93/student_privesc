@@ -16,7 +16,7 @@ ssh-keygen -t rsa -b 2048 -f ./id_rsa -N ""
 
 ✅ **Checkpoint:**  
 1. Which two files were generated? (e.g., `id_rsa`, `id_rsa.pub`)?
-- Answer:
+- Answer: id_rsa, id_rsa.pub
 2. Which file should never be shared? (private key or public key?)
 - Answer:
 
