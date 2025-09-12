@@ -13,10 +13,10 @@ ssh-keygen -t rsa -b 2048 -f ./id_rsa -N ""
 ```
 
 ✅ **Checkpoint:**  
-- Which two files were generated? (e.g., `id_rsa`, `id_rsa.pub`)?
-Answer:
-- Which file should never be shared? (private key or public key?)
-Answer:
+1. Which two files were generated? (e.g., `id_rsa`, `id_rsa.pub`)?
+- Answer:
+2. Which file should never be shared? (private key or public key?)
+- Answer:
 
 ---
 
@@ -28,8 +28,8 @@ upload id_rsa.pub /tmp/id_rsa.pub
 ```
 
 ✅ **Checkpoint:**  
-- Where is the public key stored on the target?
-Answer:
+3. Where is the public key stored on the target?
+- Answer:
 
 ---
 
@@ -52,8 +52,8 @@ exit
 ```
 
 ✅ **Checkpoint:**  
-- What does `chmod 600 ~/.ssh/authorized_keys` do?  
-Answer: 
+4. What does `chmod 600 ~/.ssh/authorized_keys` do?  
+- Answer: 
 
 ---
 
@@ -72,10 +72,10 @@ ifconfig
 ```
 
 ✅ **Checkpoint:**  
-- What username did you gain access as? 
-Answer:  
-- What is the target IP?
-Answer:
+5. What username did you gain access as? 
+- Answer:  
+6. What is the target IP?
+- Answer:
 
 **Note:** Type `yes` if prompted about host fingerprinting.  
 
@@ -115,18 +115,18 @@ You can also manage SSH persistence via Metasploit.
    ```
 
 ✅ **Checkpoint:**  
-- What session ID was upgraded?  
-Answer:
-- Why might upgrading to Meterpreter be useful?
-Answer:
+7. What session ID was upgraded?  
+- Answer:
+8. Why might upgrading to Meterpreter be useful?
+- Answer:
 
 ---
 
 ## Reflection Questions
-- Why is SSH persistence more reliable than keeping only a Meterpreter shell?
-Answer:  
-- What security controls could prevent an attacker from using this technique?  
-Answer: 
+9. Why is SSH persistence more reliable than keeping only a Meterpreter shell?
+- Answer:  
+10. What security controls could prevent an attacker from using this technique?  
+- Answer: 
 
 ---
 
