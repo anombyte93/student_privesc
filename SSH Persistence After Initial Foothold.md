@@ -3,6 +3,8 @@
 ## Objective  
 In this lab, you will learn how to maintain access on a compromised Linux system by setting up **SSH key-based persistence** after gaining your first shell foothold (e.g., via Meterpreter).
 
+**IMPORTANT** You must have a Meterpreter session to your target as a pre-requisite for this worksheet!
+
 ---
 
 ## Step 1 – Generate SSH Keys (on Kali)  
