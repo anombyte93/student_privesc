@@ -31,7 +31,7 @@ upload id_rsa.pub /tmp/id_rsa.pub
 
 ✅ **Checkpoint:**  
 3. Where is the public key stored on the target?
-- Answer: /home/kali/id_rsa.pub --> /tmp/id_rsa.pub
+- Answer: /tmp/id_rsa.pub
 
 ---
 
