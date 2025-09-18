@@ -18,7 +18,7 @@ ssh-keygen -t rsa -b 2048 -f ./id_rsa -N ""
 1. Which two files were generated? (e.g., `id_rsa`, `id_rsa.pub`)?
 - Answer: id_rsa, id_rsa.pub
 2. Which file should never be shared? (private key or public key?)
-- Answer:
+- Answer: Private key.
 
 ---
 
@@ -31,7 +31,7 @@ upload id_rsa.pub /tmp/id_rsa.pub
 
 ✅ **Checkpoint:**  
 3. Where is the public key stored on the target?
-- Answer:
+- Answer: /home/kali/id_rsa.pub --> /tmp/id_rsa.pub
 
 ---
 
@@ -55,7 +55,7 @@ exit
 
 ✅ **Checkpoint:**  
 4. What does `chmod 600 ~/.ssh/authorized_keys` do?  
-- Answer: 
+- Answer: This command enables read-write permission but does not allow to execute. 
 
 ---
 
@@ -75,9 +75,9 @@ ifconfig
 
 ✅ **Checkpoint:**  
 5. What username did you gain access as? 
-- Answer:  
+- Answer: www-data  
 6. What is the target IP?
-- Answer:
+- Answer: 192.168.56.102
 
 **Note:** Type `yes` if prompted about host fingerprinting.  
 
