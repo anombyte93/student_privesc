@@ -1,0 +1,58 @@
+zsh: corrupt history file /home/kali/.zsh_history
+┌──(kali㉿kali)-[~]
+└─$ ssh-keygen -t rsa -b 2048 -f ./id_rsa -N ""
+Generating public/private rsa key pair.
+./id_rsa already exists.
+Overwrite (y/n)? y
+Your identification has been saved in ./id_rsa
+Your public key has been saved in ./id_rsa.pub
+The key fingerprint is:
+SHA256:uD9c2ScbxENzSW71MJVetStiZALvS5M3Bh1y0bBcglY kali@kali
+The key's randomart image is:
++---[RSA 2048]----+
+|       . .oE+o+o*|
+|        oo= Boo=+|
+|        .+ O o+.o|
+|       .. * +. ..|
+|      . S= X o . |
+|       .. O * o  |
+|      .. o   =   |
+|       .o   .    |
+|        ..       |
++----[SHA256]-----+
+                                                                                                     
+┌──(kali㉿kali)-[~]
+└─$ mkdir -p ~/.ssh
+                                                                                                     
+┌──(kali㉿kali)-[~]
+└─$ cat /tmp/id_rsa.pub >> ~/.ssh/authorized_keys
+cat: /tmp/id_rsa.pub: No such file or directory
+                                                                                                     
+┌──(kali㉿kali)-[~]
+└─$ ssh -i ./id_rsa -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa <username>@<target-ip>
+zsh: parse error near `\n'
+                                                                                                     
+┌──(kali㉿kali)-[~]
+└─$ ssh -i ./id_rsa -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa <username>@<target-ip>
+zsh: parse error near `\n'
+                                                                                                                             
+┌──(kali㉿kali)-[~]
+└─$ ssh -i ./id_rsa -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa www-data@192.168.56.102
+The authenticity of host '192.168.56.102 (192.168.56.102)' can't be established.
+RSA key fingerprint is SHA256:BQHm5EoHX9GCiOLuVscegPXLQOsuPs+E9d/rrJB84rk.
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '192.168.56.102' (RSA) to the list of known hosts.
+Linux metasploitable 2.6.24-16-server #1 SMP Thu Apr 10 13:58:00 UTC 2008 i686
+
+The programs included with the Ubuntu system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+To access official Ubuntu documentation, please visit:
+http://help.ubuntu.com/
+www-data@metasploitable:~$ 
+www-data@metasploitable:~$ 
